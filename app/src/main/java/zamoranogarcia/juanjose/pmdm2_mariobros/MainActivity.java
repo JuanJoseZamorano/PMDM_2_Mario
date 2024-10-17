@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity implements PersonajeAdapter.
 
         // Inicializar lista de personajes
         personajeList = new ArrayList<>();
-        personajeList.add(new Personaje("Mario", R.drawable.mario));
-        personajeList.add(new Personaje("LuigUi", R.drawable.luigui));
-        personajeList.add(new Personaje("Peach", R.drawable.peach));
-        personajeList.add(new Personaje("Toad", R.drawable.toad));
+        personajeList.add(new Personaje("Mario", R.drawable.mario, "Héroe del juego. Personaje principal", "Salto y rapidez"));
+        personajeList.add(new Personaje("LuigUi", R.drawable.luigui, "Hermano de Mario", "Inteligente y cauto con los saltos"));
+        personajeList.add(new Personaje("Peach", R.drawable.peach, "Amiga incondicional de Mario", "Habilidad y persuasión contra los malvados."));
+        personajeList.add(new Personaje("Toad", R.drawable.toad, "Héroe del reino Champiñón", "Salto y velocidad infinita"));
 
         // Configurar el adapter
         adapter = new PersonajeAdapter(this, personajeList, this);

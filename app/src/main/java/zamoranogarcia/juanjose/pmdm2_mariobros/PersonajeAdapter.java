@@ -1,6 +1,7 @@
 package zamoranogarcia.juanjose.pmdm2_mariobros;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
         return new PersonajeViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull PersonajeViewHolder holder, int position) {
         Personaje personaje = personajeList.get(position);
@@ -36,7 +38,15 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
         holder.imageViewPersonaje.setImageResource(personaje.getImagen());
 
         // Evento de clic para cada elemento
-        holder.itemView.setOnClickListener(v -> listener.onItemClick(personaje));
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetallePersonajeActivity.class);
+            intent.putExtra("nombre", personaje.getNombre());
+            intent.putExtra("imagen", personaje.getImagen());
+            intent.putExtra("descripcion", "Descripcion : "+personaje.getDescripcion());
+            intent.putExtra("habilidades", "Habilidades : "+personaje.getHabilidades());
+
+            context.startActivity(intent);
+        });
     }
 
     @Override
